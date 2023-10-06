@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { categories } from "../data/categories";
+import React, { useState, useEffect } from 'react';
 
 import offer1 from "../assets/images/offer-1.png";
 import frame1 from "../assets/images/frame-1.png";
@@ -12,10 +13,29 @@ import products from "../data/products";
 import { Fragment } from "react";
 
 const HomePage = () => {
+  const [scrolling, setScrolling] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 170) {
+        setScrolling(true);
+      } else {
+        setScrolling(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+
   return (
     <section id="home">
       <div className="container-lg home">
-        <div className="home-categories">
+        <div className={`home-categories ${scrolling ? 'scroll-header' : ''}`}>
           {categories.map((pr) => {
             return (
               <div key={pr.name} className="category-card">

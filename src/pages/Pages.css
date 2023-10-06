@@ -248,3 +248,12 @@
 .submit-btn:hover {
   opacity: 0.8;
 }
+.scroll-header{
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+  top: 30px;
+  background: #fff;
+  left: 0;
+  padding-inline: 100px;
+}
