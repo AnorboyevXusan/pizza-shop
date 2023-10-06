@@ -61,14 +61,9 @@ const HomePage = () => {
           <button className="search-btn">Проверить</button>
         </div>
         <div className="home-products">
-          {categories.map((el) => (
-            <Fragment key={el.name}>
-              <h3 id={el.name} className="products-category">{el.name}</h3>
-              <div className="products-row">
-                {products.map((pr) => <ProductsCard key={pr.id} {...pr} />)}
-              </div>
-            </Fragment>
-          ))}
+          <div className="products-row">
+            {products.map((pr) => <ProductsCard key={pr.id} {...pr} />)}
+          </div>
         </div>
       </div>
     </section>
